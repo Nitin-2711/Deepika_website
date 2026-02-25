@@ -7,15 +7,25 @@
   --accent: #22C55E;
 }
 
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
 @layer base {
+  html, body {
+    width: 100%;
+    max-width: 100vw;
+    overflow-x: hidden;
+    position: relative;
+  }
+  
   html {
     scroll-behavior: smooth;
-    font-size: 16px; /* Base for rem */
+    font-size: 16px;
   }
   
   body {
     @apply antialiased text-slate-900 bg-white dark:text-slate-100 dark:bg-slate-950 transition-colors duration-300;
-    overflow-x: hidden; /* Prevent horizontal scroll */
   }
 
   h1 { @apply font-bold leading-tight; font-size: clamp(2.5rem, 8vw, 4.5rem); }
@@ -30,7 +40,7 @@
   }
   
   .section-container {
-    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-24;
+    @apply w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-24 overflow-x-hidden;
   }
   
   .btn-primary {
